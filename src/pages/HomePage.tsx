@@ -259,48 +259,58 @@ export const HomePage: React.FC = () => {
       {/* PRINCIPAL'S WELCOME STATEMENT */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl shadow-elevated border border-stone-200 overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
             
             {/* Principal Photo Card */}
-            <div className="lg:col-span-5 bg-gradient-to-br from-[#3D0707] via-[#560D0D] to-[#2B0808] p-8 sm:p-10 text-white flex flex-col justify-between relative overflow-hidden">
-              <div className="relative z-10 space-y-6 text-center sm:text-left">
+            <div className="lg:col-span-5 bg-gradient-to-br from-[#3D0707] via-[#560D0D] to-[#2B0808] p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center relative overflow-hidden">
+              <div className="relative z-10 space-y-4 max-w-sm flex flex-col items-center">
                 <div className="inline-block px-3 py-1 bg-black/40 border border-[#C8872B]/40 rounded-full text-xs text-amber-200 font-semibold tracking-wider uppercase">
                   College Leadership
                 </div>
 
-                <div className="flex justify-center sm:justify-start">
-                  <div className="relative p-1.5 rounded-xl bg-gradient-to-b from-[#C8872B] to-[#3D0707] shadow-xl">
-                    <img 
-                      src={schoolInfo.principal.image} 
-                      alt={`Principal ${schoolInfo.principal.name}`} 
-                      className="w-48 h-60 sm:w-56 sm:h-72 object-cover rounded-lg filter contrast-105"
-                    />
-                  </div>
+                <div className="relative p-1.5 rounded-xl bg-gradient-to-b from-[#C8872B] to-[#3D0707] shadow-xl">
+                  <img 
+                    src={schoolInfo.principal.image} 
+                    alt={`Principal ${schoolInfo.principal.name}`} 
+                    className="w-44 h-52 sm:w-48 sm:h-60 object-cover rounded-lg filter contrast-105"
+                  />
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-2xl font-bold text-[#FAF2DF]">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#FAF2DF]">
                     {schoolInfo.principal.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#E1B463] font-medium mt-0.5">
+                  <p className="text-xs text-[#E1B463] font-medium mt-0.5">
                     {schoolInfo.principal.qualifications}
                   </p>
-                  <p className="text-xs text-amber-200/70 uppercase tracking-widest mt-1">
+                  <p className="text-[11px] text-amber-200/70 uppercase tracking-widest mt-1">
                     Principal, Sir John Kotelawala Maha Vidyalaya
                   </p>
                 </div>
+
+                {/* Leadership Motto Callout */}
+                <div className="p-3 bg-black/35 rounded-xl border border-[#C8872B]/30 text-xs text-amber-100/90 text-center space-y-1">
+                  <p className="italic font-serif text-[11px] leading-relaxed">
+                    "Fostering strong personality, discipline, and intellect to prepare students for the twenty-first century."
+                  </p>
+                  <div className="pt-1 flex items-center justify-center gap-2 text-[10px] text-amber-300 font-semibold uppercase tracking-wider">
+                    <span>Kesbewa Division</span>
+                    <span>•</span>
+                    <span>Piliyandala</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Decorative Watermark */}
-              <div className="absolute -bottom-10 -right-10 opacity-10 pointer-events-none">
-                <img src="/images/logo-bw.png" alt="" className="w-64 h-64" />
+              {/* Decorative Subtle Watermark */}
+              <div className="absolute -bottom-12 -right-12 opacity-10 pointer-events-none">
+                <img src="/images/logo-bw.png" alt="" className="w-56 h-56" />
               </div>
             </div>
 
             {/* Principal's Letter */}
-            <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between space-y-6">
+            <div className="lg:col-span-7 p-6 sm:p-8 lg:p-10 flex flex-col justify-center space-y-5">
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#8A5217] uppercase tracking-wider mb-2">
+                <div className="flex items-center gap-2 text-xs font-semibold text-[#8A5217] uppercase tracking-wider mb-1.5">
                   <Flame className="w-4 h-4 text-[#C8872B]" />
                   <span>Principal's Address</span>
                 </div>
@@ -309,7 +319,7 @@ export const HomePage: React.FC = () => {
                 </h3>
               </div>
 
-              <div className="space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed">
+              <div className="space-y-3.5 text-stone-700 text-xs sm:text-sm leading-relaxed">
                 <p>
                   As you explore our website, you will discover our talented students, our rich history and our diverse strengths. Our commitment as a <strong className="text-[#3D0707]">“Mother School”</strong> is to provide a safe and intellectually challenging environment that empowers students to develop the strong personalities essential for meeting the challenges of the twenty-first century.
                 </p>
@@ -322,29 +332,29 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* Vision & Mission Highlight Box */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-stone-200">
-                <div className="bg-[#FAF9F5] p-4 rounded-lg border-l-2 border-[#C8872B]">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#8A5217] mb-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2 border-t border-stone-200">
+                <div className="bg-[#FAF9F5] p-3.5 rounded-lg border-l-4 border-[#C8872B]">
+                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#8A5217] mb-0.5">
                     Our Vision
                   </h4>
-                  <p className="text-xs text-stone-700 font-medium">
+                  <p className="text-xs text-stone-700 font-medium leading-snug">
                     {schoolInfo.vision}
                   </p>
                 </div>
-                <div className="bg-[#FAF9F5] p-4 rounded-lg border-l-2 border-[#560D0D]">
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#7E1313] mb-1">
+                <div className="bg-[#FAF9F5] p-3.5 rounded-lg border-l-4 border-[#560D0D]">
+                  <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#7E1313] mb-0.5">
                     Our Mission
                   </h4>
-                  <p className="text-xs text-stone-700 font-medium">
+                  <p className="text-xs text-stone-700 font-medium leading-snug">
                     {schoolInfo.mission}
                   </p>
                 </div>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-1 flex flex-wrap items-center gap-4">
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 text-sm font-bold text-[#560D0D] hover:text-[#C8872B] transition-colors group"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#560D0D] hover:text-[#C8872B] transition-colors group"
                 >
                   <span>Read Full College History & Media Unit Story</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
