@@ -48,8 +48,8 @@ export const Navbar: React.FC = () => {
               {schoolInfo.mottoSinhala}
             </span>
             <span className="hidden md:inline text-amber-100/30">|</span>
-            <span className="hidden md:inline text-amber-100/75 italic font-serif">
-              "{schoolInfo.mottoEnglish}"
+            <span className="hidden md:inline text-amber-100/80 font-medium tracking-wide">
+              {schoolInfo.mottoEnglish}
             </span>
           </div>
 
@@ -94,7 +94,7 @@ export const Navbar: React.FC = () => {
                 className="w-10 h-10 sm:w-11 sm:h-11 object-contain filter drop-shadow transition-transform duration-300 group-hover:scale-105"
               />
               <div className="whitespace-nowrap">
-                <div className="text-[#FAF2DF] font-serif font-bold text-sm sm:text-base md:text-lg tracking-tight leading-tight group-hover:text-amber-200 transition-colors">
+                <div className="text-[#FAF2DF] font-bold text-sm sm:text-base md:text-lg tracking-tight leading-tight group-hover:text-amber-200 transition-colors">
                   Sir John Kotelawala
                 </div>
                 <div className="text-[#E1B463] text-[11px] sm:text-xs font-medium tracking-wide">
@@ -173,7 +173,7 @@ export const Navbar: React.FC = () => {
                 <div className="flex items-center gap-2.5">
                   <img src="/images/logo-color.png" alt="Crest" className="w-9 h-9 object-contain" />
                   <div>
-                    <h3 className="text-amber-100 font-serif font-bold text-sm leading-tight">Sir John Kotelawala</h3>
+                    <h3 className="text-amber-100 font-bold text-sm leading-tight">Sir John Kotelawala</h3>
                     <p className="text-[#C8872B] text-[11px]">Maha Vidyalaya</p>
                   </div>
                 </div>
@@ -185,8 +185,8 @@ export const Navbar: React.FC = () => {
                 </button>
               </div>
 
-              <div className="py-2.5 text-[11px] text-amber-200/60 font-serif italic border-b border-[#C8872B]/20 mb-3">
-                "{schoolInfo.mottoEnglish}"
+              <div className="py-2.5 text-[11px] text-amber-200/80 font-medium border-b border-[#C8872B]/20 mb-3">
+                {schoolInfo.mottoEnglish}
               </div>
 
               <nav className="flex flex-col gap-1 mt-2">

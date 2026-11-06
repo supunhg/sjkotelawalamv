@@ -18,6 +18,7 @@ import {
   LayoutGrid
 } from 'lucide-react';
 import { sportsScheduleData, micTeachersData, clubsData } from '../data/schoolData';
+import { PageHeader } from '../components/layout/PageHeader';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { Badge } from '../components/common/Badge';
 
@@ -54,35 +55,19 @@ export const SportsPage: React.FC = () => {
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
       
-      {/* PAGE HEADER HERO WITH SPORTS BANNER */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#4A0A0A] via-[#560D0D] to-[#380606] text-white py-16 sm:py-24 border-b-4 border-[#C8872B]">
-        <div className="absolute inset-0 opacity-20 mix-blend-luminosity pointer-events-none">
-          <img 
-            src="/images/sports-banner.png" 
-            alt="Sports Banner" 
-            className="w-full h-full object-cover object-center"
-          />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/40 border border-[#C8872B]/40 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Trophy className="w-3.5 h-3.5 text-[#C8872B]" />
-            <span>Athletics, Fitness & Co-Curricular Excellence</span>
-          </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#FAF2DF] tracking-tight">
-            Sports & Student Athletics
-          </h1>
-
-          <p className="mt-3 text-sm sm:text-base text-amber-100/80 max-w-2xl mx-auto font-serif italic">
-            "Fostering endurance, team camaraderie, and national sportsmanship"
-          </p>
-
-          <p className="mt-2 text-xs sm:text-sm text-amber-200/60 max-w-xl mx-auto">
-            Comprehensive athletics, field sports, martial arts, and mind sports under certified coaches and Master-in-Charge teachers.
-          </p>
-        </div>
-      </section>
+      {/* INSTITUTIONAL PAGE HEADER */}
+      <PageHeader
+        title="Sports & Student Athletics"
+        sinhalaTitle="ක්‍රීඩා සහ මලල ක්‍රීඩා අංශය • Kesbewa Education Division"
+        subtitle="Official weekly training schedules, athletic coaching rosters, and Master-in-Charge teacher directories for Sir John Kotelawala Maha Vidyalaya."
+        breadcrumbs={[{ label: 'Sports & Clubs' }]}
+        badges={[
+          { icon: Trophy, text: '8 Sports Disciplines' },
+          { icon: Users, text: '7 Masters-in-Charge' },
+          { icon: Calendar, text: 'Morning & Afternoon Sessions' },
+          { icon: MapPin, text: 'College Grounds & Courts' },
+        ]}
+      />
 
       {/* SPORTS TRAINING SCHEDULE SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">

@@ -13,6 +13,7 @@ import {
 } from 'lucide-react';
 import { schoolInfo, faqData } from '../data/schoolData';
 import { SectionHeader } from '../components/common/SectionHeader';
+import { PageHeader } from '../components/layout/PageHeader';
 
 export const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -39,29 +40,18 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
       
-      {/* PAGE HEADER HERO */}
-      <section className="bg-gradient-to-b from-[#4A0A0A] via-[#560D0D] to-[#380606] text-white py-16 lg:py-20 border-b-4 border-[#C8872B] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C8872B_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-[#C8872B]/40 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
-            <MapPin className="w-3.5 h-3.5 text-[#C8872B]" />
-            <span>Campus Location & Support</span>
-          </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#FAF2DF] tracking-tight">
-            Contact & Location Information
-          </h1>
-
-          <p className="mt-3 text-sm sm:text-base text-amber-100/80 max-w-2xl mx-auto font-serif italic">
-            "Kolamunna, Piliyandala • Western Province, Sri Lanka"
-          </p>
-
-          <p className="mt-2 text-xs sm:text-sm text-amber-200/60 max-w-xl mx-auto">
-            Get in touch with the Principal's Secretariat, Sports Council, or Admissions Department.
-          </p>
-        </div>
-      </section>
+      {/* INSTITUTIONAL PAGE HEADER */}
+      <PageHeader
+        title="Contact & Location Directory"
+        sinhalaTitle="සබඳතා සහ පිහිටීම • Piliyandala"
+        subtitle="Official administrative contact details, school hours, location directions, and secretariat inquiry channels."
+        breadcrumbs={[{ label: 'Contact' }]}
+        badges={[
+          { icon: MapPin, text: 'Kolamunna, Piliyandala' },
+          { icon: Phone, text: '0112 604 239' },
+          { icon: Clock, text: 'Weekdays: 7:30 AM – 3:30 PM' },
+        ]}
+      />
 
       {/* CONTACT INFORMATION CARDS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

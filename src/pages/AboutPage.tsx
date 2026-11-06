@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
 import { SectionHeader } from '../components/common/SectionHeader';
+import { PageHeader } from '../components/layout/PageHeader';
 
 export const AboutPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'history' | 'mission' | 'media' | 'leadership'>('history');
@@ -56,55 +57,44 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
       
-      {/* PAGE HEADER HERO */}
-      <section className="bg-gradient-to-b from-[#4A0A0A] via-[#560D0D] to-[#380606] text-white py-16 lg:py-20 border-b-4 border-[#C8872B] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C8872B_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-[#C8872B]/40 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Building2 className="w-3.5 h-3.5 text-[#C8872B]" />
-            <span>Legacy & Heritage</span>
-          </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#FAF2DF] tracking-tight">
-            About Sir John Kotelawala Maha Vidyalaya
-          </h1>
-
-          <p className="mt-3 text-sm sm:text-base text-amber-100/80 max-w-2xl mx-auto font-serif italic">
-            "{schoolInfo.mottoEnglish}" — {schoolInfo.mottoSinhala}
-          </p>
-
-          <p className="mt-2 text-xs sm:text-sm text-amber-200/60 max-w-xl mx-auto">
-            Kesbewa Education Division • Piliyandala Zonal Education Office • Western Province
-          </p>
-
-          {/* Interactive Sub-Navigation Tabs */}
-          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mt-8">
-            {[
-              { id: 'history', label: 'College History', icon: History },
-              { id: 'mission', label: 'Vision, Mission & Crest', icon: Target },
-              { id: 'media', label: 'College Media Unit', icon: Radio },
-              { id: 'leadership', label: 'Leadership & Staff', icon: Users },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id as any)}
-                  className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
-                    activeTab === tab.id
-                      ? 'bg-[#C8872B] text-[#3D0707] shadow-lg font-bold'
-                      : 'bg-black/30 text-amber-100/90 hover:bg-black/50 border border-amber-200/20'
-                  }`}
-                >
-                  <Icon className="w-4 h-4" />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
+      {/* INSTITUTIONAL PAGE HEADER */}
+      <PageHeader
+        title="About Sir John Kotelawala Maha Vidyalaya"
+        sinhalaTitle="විද්‍යාලයීය ඉතිහාසය සහ පරිපාලනය • Piliyandala"
+        subtitle="Established February 6, 1980 on the historic estate of General Sir John Kotelawala, serving over 2,300 students from Grade 1 to Advanced Level."
+        breadcrumbs={[{ label: 'About College' }]}
+        badges={[
+          { icon: Building2, text: 'Established Feb 6, 1980' },
+          { icon: Users, text: '2,300+ Students & 98 Faculty' },
+          { icon: Award, text: 'Navodaya Model School' },
+        ]}
+      >
+        {/* Sub-Navigation Tabs */}
+        <div className="flex items-center justify-start gap-2 sm:gap-3 flex-wrap">
+          {[
+            { id: 'history', label: 'College History', icon: History },
+            { id: 'mission', label: 'Vision, Mission & Crest', icon: Target },
+            { id: 'media', label: 'College Media Unit', icon: Radio },
+            { id: 'leadership', label: 'Leadership & Faculty', icon: Users },
+          ].map((tab) => {
+            const Icon = tab.icon;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id as any)}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+                  activeTab === tab.id
+                    ? 'bg-[#C8872B] text-[#2B0505] shadow font-bold'
+                    : 'bg-black/30 text-amber-100/90 hover:bg-black/50 border border-amber-200/20'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                <span>{tab.label}</span>
+              </button>
+            );
+          })}
         </div>
-      </section>
+      </PageHeader>
 
       {/* TAB 1: HISTORY OF THE SCHOOL */}
       {activeTab === 'history' && (

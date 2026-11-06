@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
         <span className="mx-2">•</span>
         <span>{schoolInfo.mottoSinhala}</span>
         <span className="mx-2">•</span>
-        <span className="italic font-serif">"{schoolInfo.mottoEnglish}"</span>
+        <span className="font-medium text-amber-200/90">{schoolInfo.mottoEnglish}</span>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
                 className="w-14 h-14 object-contain filter brightness-110 drop-shadow" 
               />
               <div>
-                <h3 className="font-serif font-bold text-white text-base leading-tight">
+                <h3 className="font-bold text-white text-base leading-tight">
                   Sir John Kotelawala
                 </h3>
                 <p className="text-[#C8872B] text-xs font-medium">Maha Vidyalaya</p>
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 2: Quick Links */}
           <div className="space-y-4">
-            <h4 className="font-serif font-semibold text-white text-sm tracking-wider uppercase border-b border-stone-800 pb-2">
+            <h4 className="font-bold text-white text-xs tracking-wider uppercase border-b border-stone-800 pb-2">
               School Navigation
             </h4>
             <ul className="space-y-2 text-xs">
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 3: Useful Official Links */}
           <div className="space-y-4">
-            <h4 className="font-serif font-semibold text-white text-sm tracking-wider uppercase border-b border-stone-800 pb-2">
+            <h4 className="font-bold text-white text-xs tracking-wider uppercase border-b border-stone-800 pb-2">
               National Portals
             </h4>
             <ul className="space-y-2 text-xs">
@@ -124,7 +124,7 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Contact & Location */}
           <div className="space-y-4">
-            <h4 className="font-serif font-semibold text-white text-sm tracking-wider uppercase border-b border-stone-800 pb-2">
+            <h4 className="font-bold text-white text-xs tracking-wider uppercase border-b border-stone-800 pb-2">
               School Contact
             </h4>
             <div className="space-y-3 text-xs">

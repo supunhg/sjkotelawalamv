@@ -15,6 +15,7 @@ import {
   Download
 } from 'lucide-react';
 import { SectionHeader } from '../components/common/SectionHeader';
+import { PageHeader } from '../components/layout/PageHeader';
 import { Badge } from '../components/common/Badge';
 import { Link } from 'react-router-dom';
 
@@ -67,29 +68,18 @@ export const AcademicsPage: React.FC = () => {
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
       
-      {/* PAGE HEADER HERO */}
-      <section className="bg-gradient-to-b from-[#4A0A0A] via-[#560D0D] to-[#380606] text-white py-16 lg:py-20 border-b-4 border-[#C8872B] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C8872B_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-[#C8872B]/40 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
-            <GraduationCap className="w-3.5 h-3.5 text-[#C8872B]" />
-            <span>National Curriculum Excellence</span>
-          </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#FAF2DF] tracking-tight">
-            Academics & Curricular Excellence
-          </h1>
-
-          <p className="mt-3 text-sm sm:text-base text-amber-100/80 max-w-2xl mx-auto font-serif italic">
-            "A civilized society and an excellent active citizen through optimal education"
-          </p>
-
-          <p className="mt-2 text-xs sm:text-sm text-amber-200/60 max-w-xl mx-auto">
-            Comprehensive primary, secondary, and collegiate education supervised by the Western Province Department of Education.
-          </p>
-        </div>
-      </section>
+      {/* INSTITUTIONAL PAGE HEADER */}
+      <PageHeader
+        title="Academics & Curricular Programs"
+        sinhalaTitle="පාසල් අධ්‍යාපන විෂයමාලාව • Kesbewa Division"
+        subtitle="National curriculum pathways from foundational Primary education (Grades 1–5) to G.C.E. Advanced Level collegiate specializations across five streams."
+        breadcrumbs={[{ label: 'Academics' }]}
+        badges={[
+          { icon: GraduationCap, text: 'Grades 1 through 13' },
+          { icon: BookOpen, text: '5 A/L Collegiate Streams' },
+          { icon: Award, text: '88%+ O/L Qualification Rate' },
+        ]}
+      />
 
       {/* ACADEMIC LEVELS BREAKDOWN */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

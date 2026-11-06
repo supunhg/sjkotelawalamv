@@ -12,6 +12,7 @@ import {
 } from 'lucide-react';
 import { newsData, galleryData } from '../data/schoolData';
 import { SectionHeader } from '../components/common/SectionHeader';
+import { PageHeader } from '../components/layout/PageHeader';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { NewsItem } from '../types';
@@ -34,29 +35,18 @@ export const NewsPage: React.FC = () => {
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
       
-      {/* PAGE HEADER HERO */}
-      <section className="bg-gradient-to-b from-[#4A0A0A] via-[#560D0D] to-[#380606] text-white py-16 lg:py-20 border-b-4 border-[#C8872B] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C8872B_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-[#C8872B]/40 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Newspaper className="w-3.5 h-3.5 text-[#C8872B]" />
-            <span>Official Media Desk</span>
-          </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#FAF2DF] tracking-tight">
-            News, Events & College Gallery
-          </h1>
-
-          <p className="mt-3 text-sm sm:text-base text-amber-100/80 max-w-2xl mx-auto font-serif italic">
-            "Chronicles of excellence, artistic triumphs, and academic achievements"
-          </p>
-
-          <p className="mt-2 text-xs sm:text-sm text-amber-200/60 max-w-xl mx-auto">
-            Dispatches published by the College Media Unit in collaboration with the Principal's Office.
-          </p>
-        </div>
-      </section>
+      {/* INSTITUTIONAL PAGE HEADER */}
+      <PageHeader
+        title="News, Bulletins & Photo Gallery"
+        sinhalaTitle="විද්‍යාලයීය පුවත් සහ විශේෂ සිදුවීම් • College Media Unit"
+        subtitle="Official circulars, examination updates, competition victories, and visual archives documented by the College Media Unit."
+        breadcrumbs={[{ label: 'News & Events' }]}
+        badges={[
+          { icon: Newspaper, text: 'Media Unit Dispatches' },
+          { icon: Trophy, text: 'National Competitions' },
+          { icon: ImageIcon, text: 'Campus Photo Archive' },
+        ]}
+      />
 
       {/* FILTER & SEARCH */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

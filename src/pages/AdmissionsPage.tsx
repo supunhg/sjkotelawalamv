@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { schoolInfo } from '../data/schoolData';
 import { SectionHeader } from '../components/common/SectionHeader';
+import { PageHeader } from '../components/layout/PageHeader';
 
 export const AdmissionsPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -42,29 +43,18 @@ export const AdmissionsPage: React.FC = () => {
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
       
-      {/* PAGE HEADER HERO */}
-      <section className="bg-gradient-to-b from-[#4A0A0A] via-[#560D0D] to-[#380606] text-white py-16 lg:py-20 border-b-4 border-[#C8872B] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C8872B_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/30 border border-[#C8872B]/40 text-amber-200 text-xs font-semibold uppercase tracking-wider mb-4">
-            <GraduationCap className="w-3.5 h-3.5 text-[#C8872B]" />
-            <span>Enrollment & Applications</span>
-          </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-extrabold text-[#FAF2DF] tracking-tight">
-            Admissions & Student Enrollment
-          </h1>
-
-          <p className="mt-3 text-sm sm:text-base text-amber-100/80 max-w-2xl mx-auto font-serif italic">
-            "Welcoming new scholars into the Kotelawala fraternity"
-          </p>
-
-          <p className="mt-2 text-xs sm:text-sm text-amber-200/60 max-w-xl mx-auto">
-            Governed by Ministry of Education circulars and Piliyandala Zonal Education regulations.
-          </p>
-        </div>
-      </section>
+      {/* INSTITUTIONAL PAGE HEADER */}
+      <PageHeader
+        title="Admissions & Student Enrollment"
+        sinhalaTitle="නව ශිෂ්‍ය ඇතුළත් කිරීම් • Kesbewa Division"
+        subtitle="Application guidelines, eligibility criteria, and required documentation for Grade 1, Grade 6 Scholarship transfers, and Grade 12 Advanced Level streams."
+        breadcrumbs={[{ label: 'Admissions' }]}
+        badges={[
+          { icon: GraduationCap, text: 'Grade 1, 6 & 12 Intakes' },
+          { icon: FileCheck2, text: 'Ministry Circular Guidelines' },
+          { icon: Phone, text: 'Helpdesk: 0112 604 239' },
+        ]}
+      />
 
       {/* ADMISSION INTAKE CATEGORIES */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

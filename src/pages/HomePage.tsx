@@ -36,12 +36,9 @@ export const HomePage: React.FC = () => {
     <div className="space-y-16 lg:space-y-24 pb-16">
       
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#4A0A0A] via-[#560D0D] to-[#380606] text-white">
-        {/* Subtle patterned overlay */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#C8872B_1px,transparent_1px)] [background-size:20px_20px] pointer-events-none" />
-
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#2B0505] via-[#4A0A0A] to-[#380606] text-white">
         {/* Hero Background Banner overlay (dimmed for sleek contrast) */}
-        <div className="absolute inset-0 opacity-20 mix-blend-luminosity pointer-events-none">
+        <div className="absolute inset-0 opacity-25 mix-blend-luminosity pointer-events-none">
           <img 
             src="/images/hero-banner.png" 
             alt="School Campus Banner" 
@@ -49,39 +46,39 @@ export const HomePage: React.FC = () => {
           />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
             {/* Left Column: Heading & Mission */}
             <div className="lg:col-span-8 text-center lg:text-left space-y-6">
               
-              {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/30 border border-[#C8872B]/40 text-amber-200 text-xs sm:text-sm font-medium backdrop-blur-sm">
-                <span className="w-2 h-2 rounded-full bg-[#C8872B] animate-pulse"></span>
-                <span>Government Approved 1AB Mixed Maha Vidyalaya</span>
+              {/* Institutional Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-md bg-black/40 border border-[#C8872B]/40 text-amber-200 text-xs sm:text-sm font-semibold tracking-wide backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-[#C8872B]"></span>
+                <span>Government 1AB Mixed Maha Vidyalaya • Western Province</span>
               </div>
 
               {/* Main Title */}
               <div>
-                <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#FAF2DF] leading-tight drop-shadow-md">
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#FAF2DF] leading-tight">
                   Sir John Kotelawala
-                  <span className="block text-[#E1B463] text-2xl sm:text-4xl lg:text-5xl font-normal mt-1">
+                  <span className="block text-[#E1B463] text-2xl sm:text-4xl lg:text-5xl font-bold mt-1.5">
                     Maha Vidyalaya
                   </span>
                 </h1>
-                <p className="text-amber-200/90 text-sm sm:text-base font-medium mt-2 tracking-wider">
+                <p className="text-amber-200/90 text-sm sm:text-base font-semibold mt-2.5 tracking-wider">
                   {schoolInfo.sinhalaName} • Piliyandala
                 </p>
               </div>
 
-              {/* Motto Box */}
-              <div className="bg-black/25 border-l-4 border-[#C8872B] p-4 rounded-r-lg max-w-2xl backdrop-blur-sm">
-                <p className="text-[#F4E2BE] font-serif italic text-base sm:text-lg">
-                  "{schoolInfo.mottoEnglish}"
-                </p>
-                <p className="text-amber-300/80 text-xs sm:text-sm mt-1 font-sans">
+              {/* College Motto */}
+              <div className="bg-black/35 border-l-4 border-[#C8872B] py-3.5 px-5 rounded-r-lg max-w-2xl text-left">
+                <div className="text-[#F4E2BE] text-base sm:text-lg font-semibold tracking-wide">
+                  {schoolInfo.mottoEnglish}
+                </div>
+                <div className="text-amber-300/80 text-xs sm:text-sm mt-1 font-medium">
                   {schoolInfo.mottoSinhala} — Established February 6, 1980
-                </p>
+                </div>
               </div>
 
               <p className="text-stone-300 text-sm sm:text-base max-w-2xl leading-relaxed">
@@ -118,7 +115,7 @@ export const HomePage: React.FC = () => {
 
             {/* Right Column: Crest Emblem */}
             <div className="lg:col-span-4 flex justify-center">
-              <div className="relative p-6 sm:p-8 bg-black/30 border-2 border-[#C8872B]/40 rounded-2xl shadow-2xl backdrop-blur-sm group hover:border-[#C8872B] transition-all duration-300 flex flex-col items-center text-center">
+              <div className="relative p-6 sm:p-8 bg-black/35 border-2 border-[#C8872B]/40 rounded-2xl shadow-2xl backdrop-blur-sm group hover:border-[#C8872B] transition-all duration-300 flex flex-col items-center text-center">
                 <div className="absolute -top-3 -right-3 bg-[#C8872B] text-[#3D0707] text-[10px] font-extrabold uppercase px-2.5 py-1 rounded shadow-md tracking-wider">
                   Since 1980
                 </div>
@@ -130,10 +127,10 @@ export const HomePage: React.FC = () => {
                   />
                 </div>
                 <div className="text-center mt-4">
-                  <div className="text-xs uppercase font-serif tracking-widest text-amber-200">
+                  <div className="text-xs uppercase font-crest font-bold tracking-widest text-amber-200">
                     Sacred Lotus & Knowledge Torch
                   </div>
-                  <div className="text-[11px] text-amber-100/60 mt-0.5">
+                  <div className="text-[11px] text-amber-100/70 mt-0.5">
                     Land Heritage of Gen. Sir John Kotelawala
                   </div>
                 </div>
@@ -144,31 +141,31 @@ export const HomePage: React.FC = () => {
         </div>
 
         {/* Key Statistics Strip */}
-        <div className="border-t border-[#C8872B]/30 bg-[#280505]/90 py-6 px-4">
+        <div className="border-t border-[#C8872B]/30 bg-[#240404]/95 py-6 px-4">
           <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 text-center">
             <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-amber-300 whitespace-nowrap">{schoolInfo.stats.students}</div>
-              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap">Active Students</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-300 whitespace-nowrap">{schoolInfo.stats.students}</div>
+              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap font-medium">Active Students</div>
             </div>
             <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-amber-300 whitespace-nowrap">{schoolInfo.stats.teachers}</div>
-              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap">Qualified Staff</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-300 whitespace-nowrap">{schoolInfo.stats.teachers}</div>
+              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap font-medium">Qualified Staff</div>
             </div>
             <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-amber-300 whitespace-nowrap">{schoolInfo.stats.primaryStudents}</div>
-              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap">Primary Students</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-300 whitespace-nowrap">{schoolInfo.stats.primaryStudents}</div>
+              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap font-medium">Primary Students</div>
             </div>
             <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-amber-300 whitespace-nowrap">1 - 13</div>
-              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap">Grades Taught</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-300 whitespace-nowrap">1 – 13</div>
+              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap font-medium">Grades Taught</div>
             </div>
             <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-amber-300 whitespace-nowrap">1st Place</div>
-              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap">All-Ceylon Drama</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-300 whitespace-nowrap">1st Place</div>
+              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap font-medium">All-Ceylon Drama</div>
             </div>
             <div className="p-2">
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-amber-300 whitespace-nowrap">{schoolInfo.stats.yearsExcellence}</div>
-              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap">Years of Service</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-amber-300 whitespace-nowrap">{schoolInfo.stats.yearsExcellence}</div>
+              <div className="text-xs text-amber-100/70 uppercase tracking-wider mt-0.5 whitespace-nowrap font-medium">Years of Service</div>
             </div>
           </div>
         </div>
@@ -185,7 +182,7 @@ export const HomePage: React.FC = () => {
                 <Bell className="w-5 h-5 text-[#C8872B]" />
               </div>
               <div>
-                <h2 className="font-serif font-bold text-xl sm:text-2xl text-[#3D0707]">
+                <h2 className="font-bold text-xl sm:text-2xl text-[#3D0707]">
                   Official College Notice Board
                 </h2>
                 <p className="text-xs sm:text-sm text-stone-500">
@@ -235,7 +232,7 @@ export const HomePage: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900 group-hover:text-[#8A5217] transition-colors">
+                  <h3 className="font-bold text-base sm:text-lg text-stone-900 group-hover:text-[#8A5217] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-stone-600 line-clamp-2">
@@ -264,7 +261,7 @@ export const HomePage: React.FC = () => {
             {/* Principal Photo Card */}
             <div className="lg:col-span-5 bg-gradient-to-br from-[#3D0707] via-[#560D0D] to-[#2B0808] p-6 sm:p-8 text-white flex flex-col justify-center items-center text-center relative overflow-hidden">
               <div className="relative z-10 space-y-4 max-w-sm flex flex-col items-center">
-                <div className="inline-block px-3 py-1 bg-black/40 border border-[#C8872B]/40 rounded-full text-xs text-amber-200 font-semibold tracking-wider uppercase">
+                <div className="inline-block px-3 py-1 bg-black/40 border border-[#C8872B]/40 rounded-md text-xs text-amber-200 font-semibold tracking-wider uppercase">
                   College Leadership
                 </div>
 
@@ -277,7 +274,7 @@ export const HomePage: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-[#FAF2DF]">
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#FAF2DF]">
                     {schoolInfo.principal.name}
                   </h3>
                   <p className="text-xs text-[#E1B463] font-medium mt-0.5">
@@ -290,8 +287,8 @@ export const HomePage: React.FC = () => {
 
                 {/* Leadership Motto Callout */}
                 <div className="p-3 bg-black/35 rounded-xl border border-[#C8872B]/30 text-xs text-amber-100/90 text-center space-y-1">
-                  <p className="italic font-serif text-[11px] leading-relaxed">
-                    "Fostering strong personality, discipline, and intellect to prepare students for the twenty-first century."
+                  <p className="text-[11px] font-medium leading-relaxed text-amber-100">
+                    Fostering strong personality, discipline, and intellect to prepare students for the twenty-first century.
                   </p>
                   <div className="pt-1 flex items-center justify-center gap-2 text-[10px] text-amber-300 font-semibold uppercase tracking-wider">
                     <span>Kesbewa Division</span>
@@ -314,7 +311,7 @@ export const HomePage: React.FC = () => {
                   <Flame className="w-4 h-4 text-[#C8872B]" />
                   <span>Principal's Address</span>
                 </div>
-                <h3 className="font-serif text-2xl sm:text-3xl font-bold text-[#3D0707] leading-tight">
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#3D0707] leading-tight">
                   Welcome to Sir John Kotelawala Maha Vidyalaya
                 </h3>
               </div>
@@ -384,7 +381,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-semibold text-[#C8872B] uppercase tracking-wider">Primary Section</span>
-                <h3 className="font-serif font-bold text-lg text-stone-900 mt-1">
+                <h3 className="font-bold text-lg text-stone-900 mt-1">
                   Grades 1 to 5
                 </h3>
               </div>
@@ -406,7 +403,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-semibold text-[#C8872B] uppercase tracking-wider">Junior Secondary</span>
-                <h3 className="font-serif font-bold text-lg text-stone-900 mt-1">
+                <h3 className="font-bold text-lg text-stone-900 mt-1">
                   Grades 6 to 9
                 </h3>
               </div>
@@ -428,7 +425,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-semibold text-[#C8872B] uppercase tracking-wider">Ordinary Level</span>
-                <h3 className="font-serif font-bold text-lg text-stone-900 mt-1">
+                <h3 className="font-bold text-lg text-stone-900 mt-1">
                   G.C.E. O/L (Grades 10-11)
                 </h3>
               </div>
@@ -450,7 +447,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-semibold text-amber-300 uppercase tracking-wider">Collegiate Stream</span>
-                <h3 className="font-serif font-bold text-lg text-amber-100 mt-1">
+                <h3 className="font-bold text-lg text-amber-100 mt-1">
                   G.C.E. A/L (Grades 12-13)
                 </h3>
               </div>
@@ -494,7 +491,7 @@ export const HomePage: React.FC = () => {
                 className="bg-black/40 border border-[#C8872B]/40 rounded-xl p-6 backdrop-blur-sm relative group hover:border-amber-400 transition-all"
               >
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-2xl font-serif font-bold text-amber-400">
+                  <span className="text-2xl font-bold text-amber-400">
                     {ach.year}
                   </span>
                   <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[#C8872B]/20 text-amber-300 border border-[#C8872B]/40 text-xs font-bold uppercase">
@@ -503,7 +500,7 @@ export const HomePage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="font-serif text-lg font-bold text-[#FAF2DF] mb-2 group-hover:text-amber-300 transition-colors">
+                <h3 className="text-lg font-bold text-[#FAF2DF] mb-2 group-hover:text-amber-300 transition-colors">
                   {ach.title}
                 </h3>
                 <p className="text-xs text-amber-200/70 font-medium mb-3">
@@ -527,7 +524,7 @@ export const HomePage: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
                 <div>
                   <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">Pride of Piliyandala</span>
-                  <h4 className="font-serif text-lg text-white font-bold">Performing Arts & Drama Festival Champions</h4>
+                  <h4 className="text-lg text-white font-bold">Performing Arts & Drama Festival Champions</h4>
                 </div>
               </div>
             </div>
@@ -541,7 +538,7 @@ export const HomePage: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
                 <div>
                   <span className="text-xs uppercase tracking-wider text-amber-400 font-bold">All-Island Accolades</span>
-                  <h4 className="font-serif text-lg text-white font-bold">All-Ceylon Music Competition Laureates</h4>
+                  <h4 className="text-lg text-white font-bold">All-Ceylon Music Competition Laureates</h4>
                 </div>
               </div>
             </div>
@@ -554,11 +551,10 @@ export const HomePage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-2 bg-[#FAF2DF] text-[#8A5217] border border-[#C8872B]/30">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C8872B]"></span>
+            <span className="inline-block text-xs font-bold uppercase tracking-wider mb-2 text-[#8A5217]">
               Campus Life & Traditions
-            </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-[#3D0707]">
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#3D0707]">
               Moments of Kotelawala Heritage
             </h2>
             <p className="text-xs sm:text-sm text-stone-600 mt-1">
@@ -607,7 +603,7 @@ export const HomePage: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-widest text-[#8A5217]">
                 New Academic Year Admissions
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3D0707] leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#3D0707] leading-tight">
                 Join Sir John Kotelawala Maha Vidyalaya
               </h2>
               <p className="text-xs sm:text-sm text-stone-700 leading-relaxed max-w-2xl">
