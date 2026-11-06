@@ -15,6 +15,7 @@ import {
 import { schoolInfo } from '../data/schoolData';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { PageHeader } from '../components/layout/PageHeader';
+import { api } from '../api/client';
 
 export const AdmissionsPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -29,15 +30,23 @@ export const AdmissionsPage: React.FC = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [inquiryRefId, setInquiryRefId] = useState<number | null>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    setTimeout(() => {
-      setSubmitting(false);
+    setSubmitError(null);
+    try {
+      const res = await api.submitAdmission(formData);
+      setInquiryRefId(res.inquiryId);
       setIsSubmitted(true);
-    }, 800);
+    } catch (err: any) {
+      setSubmitError(err.message || 'Error recording admission inquiry. Please contact 0112 604 239.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -226,15 +235,21 @@ export const AdmissionsPage: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-[#560D0D] text-amber-300 flex items-center justify-center mx-auto shadow-md">
                 <CheckCircle className="w-8 h-8" />
               </div>
-              <h4 className="font-serif font-bold text-xl text-[#3D0707]">
-                Inquiry Received Successfully!
-              </h4>
+              <div>
+                <span className="inline-block px-3 py-1 rounded-full bg-[#560D0D] text-amber-200 text-xs font-mono font-bold mb-2">
+                  Reference #{inquiryRefId ? `SJK-${inquiryRefId}` : 'RECORDED'}
+                </span>
+                <h4 className="font-bold text-xl sm:text-2xl text-[#3D0707]">
+                  Admission Inquiry Registered!
+                </h4>
+              </div>
               <p className="text-xs sm:text-sm text-stone-700 max-w-md mx-auto leading-relaxed">
-                Thank you, <strong>{formData.parentName}</strong>. Your inquiry for <strong>{formData.studentName}</strong> ({formData.gradeApplying}) has been recorded. The Admissions Secretariat will review and respond via <strong>{formData.phone}</strong>.
+                Thank you, <strong>{formData.parentName}</strong>. Your preliminary admission inquiry for <strong>{formData.studentName}</strong> ({formData.gradeApplying}) has been securely logged in the college secretariat database. An administrative officer will contact you at <strong>{formData.phone}</strong> regarding documentation verification.
               </p>
               <button
                 onClick={() => {
                   setIsSubmitted(false);
+                  setInquiryRefId(null);
                   setFormData({
                     studentName: '',
                     parentName: '',
@@ -246,13 +261,20 @@ export const AdmissionsPage: React.FC = () => {
                     message: '',
                   });
                 }}
-                className="px-6 py-2.5 bg-[#560D0D] text-amber-200 text-xs font-bold rounded-lg hover:bg-[#3D0707] transition-all"
+                className="px-6 py-2.5 bg-[#560D0D] text-amber-200 text-xs font-bold rounded-lg hover:bg-[#3D0707] transition-all shadow"
               >
                 Submit Another Inquiry
               </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              
+              {submitError && (
+                <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2.5 text-xs text-red-700">
+                  <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+                  <span>{submitError}</span>
+                </div>
+              )}
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>

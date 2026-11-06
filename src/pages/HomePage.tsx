@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   Award, 
@@ -17,20 +17,56 @@ import {
   Radio,
   ExternalLink
 } from 'lucide-react';
-import { schoolInfo, announcementsData, newsData, achievementsData, galleryData } from '../data/schoolData';
+import { schoolInfo, announcementsData as defaultAnnouncements, newsData, achievementsData, galleryData as defaultGallery } from '../data/schoolData';
 import { SectionHeader } from '../components/common/SectionHeader';
 import { Badge } from '../components/common/Badge';
 import { Modal } from '../components/common/Modal';
 import { Announcement } from '../types';
+import { api, AnnouncementItem, GalleryItem } from '../api/client';
 
 export const HomePage: React.FC = () => {
   const [selectedAnnouncement, setSelectedAnnouncement] = useState<Announcement | null>(null);
   const [activeAnnounceFilter, setActiveAnnounceFilter] = useState<string>('All');
   const [selectedGalleryImg, setSelectedGalleryImg] = useState<string | null>(null);
+  const [announcements, setAnnouncements] = useState<Announcement[]>(defaultAnnouncements);
+  const [gallery, setGallery] = useState<{ id: string | number; title: string; imageUrl: string; category: string }[]>(defaultGallery);
+
+  useEffect(() => {
+    // Dynamically fetch latest notices from VPS SQLite database
+    api.getAnnouncements()
+      .then((data) => {
+        if (data && data.length > 0) {
+          setAnnouncements(data.map(d => ({
+            id: String(d.id),
+            title: d.title,
+            category: d.category as any,
+            date: d.date,
+            summary: d.summary,
+            content: d.content || d.summary,
+            isUrgent: Boolean(d.is_urgent)
+          })));
+        }
+      })
+      .catch(() => {});
+
+    // Dynamically fetch latest gallery from VPS SQLite database
+    api.getGallery()
+      .then((data) => {
+        if (data && data.length > 0) {
+          setGallery(data.slice(0, 6).map(g => ({
+            id: g.id,
+            title: g.title,
+            imageUrl: g.image_url,
+            category: g.category
+          })));
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const filteredAnnouncements = activeAnnounceFilter === 'All'
-    ? announcementsData
-    : announcementsData.filter(a => a.category === activeAnnounceFilter);
+    ? announcements
+    : announcements.filter(a => a.category === activeAnnounceFilter);
 
   return (
     <div className="space-y-16 lg:space-y-24 pb-16">
@@ -573,7 +609,7 @@ export const HomePage: React.FC = () => {
 
         {/* Gallery Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-          {galleryData.map((item) => (
+          {gallery.map((item) => (
             <div
               key={item.id}
               onClick={() => setSelectedGalleryImg(item.imageUrl)}
